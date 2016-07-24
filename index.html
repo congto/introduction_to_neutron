@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Introduction to Neutron</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Introduction to Openstack Neutron
+
+.presenter[
+* Sławek Kapłoński <br/> slawomir.kaplonski@ovh.net
+]
+---
+
+# Agenda
+
+1. What is Neutron?
+  * what is it for in Openstack world?
+  * overview
+2. Neutron server in details:
+  * what are core plugins and service plugins?
+  * how to extend Neutron API?
+3. Neutron agents:
+  * L2 agents (openvswitch, linuxbridge, etc.),
+  * L3 agent,
+  * metadata, dhcp agents.
+4. Standard workflow between Nova and Neutron
+5. Network scenarios example(s)
+
+---
+
+# Questions?
+
+.presenters[
+* Sławek Kapłoński <br/> slawomir.kaplonski@ovh.net
+]
+
+# Reference
+
+http://slawqo.github.io/introduction_to_neutron/
+
+
+    </textarea>
+    <script src="remark-latest.min.js">
+    </script>
+    <script>
+        var slideshow = remark.create({ratio: '16:9',
+                                       countIncrementalSlides: false});
+    </script>
+
+    <script src="plotly-latest.min.js"></script>
+    <script>
+
+
+
+     var port_a = {
+              x: [ 'start','no-policy','min-policy-of-8Gb-on-a',],
+              y: [ '9.9', '5', '8'],
+              name: 'port-a',
+              type: 'bar',
+              marker: {
+                  color: '#00989e'
+              }
+
+             };
+
+    var port_b = {
+              x: [ 'start','no-policy','min-policy-of-8Gb-on-a',],
+              y: [ '0.1','5','2',],
+              name: 'port-b',
+              type: 'bar',
+              marker: {
+                  color: '#BF3330'
+              }
+             };
+
+    var options = {staticPlot: true,
+                   showLink: false,
+                   displayLogo: false};
+
+    Plotly.newPlot('graph-min-bw-best-eff',
+            [ port_a, port_b ],
+            { yaxis: { title: 'Bandwidth Gb'},
+              title: 'In host minimum bandwidth guarantee',
+              margin: { b: 20, t:40 },
+              barmode: 'group',
+              hovermode:'closest',
+              }, options);
+    </script>
+
+  </body>
+</html>
