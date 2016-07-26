@@ -59,6 +59,94 @@ class: center
 
 ---
 
+class: center
+
+# Neutron server functions
+
+.left_side_list[
+* Process REST API requests
+]
+
+---
+
+class: center
+
+# Neutron server functions
+
+.left_side_list[
+* Process REST API requests
+* Access to database
+]
+
+---
+
+class: center
+
+# Neutron server functions
+
+.left_side_list[
+* Process REST API requests
+* Access to database
+* Communicate with agents via RPC (rabbitmq)
+]
+
+---
+
+class: center
+
+# Neutron server components
+
+.left_side_list[
+* Core plugin - for example ML2 with drivers for openvswitch, linuxbridge and/or SR-IOV
+]
+
+---
+
+class: center
+
+# Neutron server components
+
+.left_side_list[
+* Core plugin - for example ML2 with drivers for openvswitch, linuxbridge and/or SR-IOV
+* Service plugins - like QoS, firewall or l3 router and many others
+]
+
+---
+
+class: center
+
+# Neutron server components
+
+.left_side_list[
+* Core plugin - for example ML2 with drivers for openvswitch, linuxbridge and/or SR-IOV
+* Service plugins - like QoS, firewall or l3 router and many others
+* API extenstions - used to add custom REST API functions, list of enabled extenstions can be checked via API call:
+]
+
+```bash
+neutron ext-list
+admin@devstack-1:/opt/stack/neutron$ neutron ext-list
++---------------------------+-----------------------------------------------+
+| alias                     | name                                          |
++---------------------------+-----------------------------------------------+
+| default-subnetpools       | Default Subnetpools                           |
+| qos                       | Quality of Service                            |
++---------------------------+-----------------------------------------------+
+
+neutron ext-show qos
++-------------+-----------------------------------+
+| Field       | Value                             |
++-------------+-----------------------------------+
+| alias       | qos                               |
+| description | The Quality of Service extension. |
+| links       |                                   |
+| name        | Quality of Service                |
+| updated     | 2015-06-08T10:00:00-00:00         |
++-------------+-----------------------------------+
+```
+
+---
+
 # Questions?
 
 .presenters[
