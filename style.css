@@ -1,0 +1,32 @@
+.left_side_list {
+    text-align: left;
+}
+
+.left_side_list li{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+/* second level of list should have smaller margins: */
+.left_side_list li > ul li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* on slide with workflow there is a lot of text and it has to be smaller: */
+.workflow li {
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.remark-code {
+    padding: 0.1em !important;
+}
+
+.remark-code-line {
+    text-align: left;
+    background-color: #000;
+    border: 1px solid #000;
+    color: #fff;
+    padding: 0 1em;
+}
