@@ -124,7 +124,6 @@ class: center
 ]
 
 ```bash
-neutron ext-list
 admin@devstack-1:/opt/stack/neutron$ neutron ext-list
 +---------------------------+-----------------------------------------------+
 | alias                     | name                                          |
@@ -132,17 +131,6 @@ admin@devstack-1:/opt/stack/neutron$ neutron ext-list
 | default-subnetpools       | Default Subnetpools                           |
 | qos                       | Quality of Service                            |
 +---------------------------+-----------------------------------------------+
-
-neutron ext-show qos
-+-------------+-----------------------------------+
-| Field       | Value                             |
-+-------------+-----------------------------------+
-| alias       | qos                               |
-| description | The Quality of Service extension. |
-| links       |                                   |
-| name        | Quality of Service                |
-| updated     | 2015-06-08T10:00:00-00:00         |
-+-------------+-----------------------------------+
 ```
 
 ---
