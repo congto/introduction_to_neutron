@@ -287,6 +287,71 @@ class: center
 
 ---
 
+class: center
+
+# Standard workflow between Nova and Neutron
+
+.left_side_list[
+1. User creates instance in Nova (nova boot),
+2. nova-compute is spawning instance on compute node and call Neutron API to
+   create new port (like neutron port-create ...)
+]
+
+---
+
+class: center
+
+# Standard workflow between Nova and Neutron
+
+.left_side_list[
+1. User creates instance in Nova (nova boot),
+2. nova-compute is spawning instance on compute node and call Neutron API to
+   create new port (like neutron port-create ...)
+3. neutron-server creates port in desired network, allocate IP for this port and try
+   to bind port with one of enabled mechanism drivers
+]
+
+---
+
+class: center
+
+# Standard workflow between Nova and Neutron
+
+.left_side_list[
+1. User creates instance in Nova (nova boot),
+2. nova-compute is spawning instance on compute node and call Neutron API to
+   create new port (like neutron port-create ...)
+3. neutron-server creates port in desired network, allocate IP for this port and try
+   to bind port with one of enabled mechanism drivers
+4. nova-compute receives from Neutron informations about new port and prepare
+   to connect tap device (e.g. create bridge)
+5. neutron-server notify L2 agent and DHCP agent about new port
+6. nova-compute starts instances and pause it for a while
+]
+
+---
+
+class: center
+
+# Standard workflow between Nova and Neutron
+
+.left_side_list[
+1. User creates instance in Nova (nova boot),
+2. nova-compute is spawning instance on compute node and call Neutron API to
+   create new port (like neutron port-create ...)
+3. neutron-server creates port in desired network, allocate IP for this port and try
+   to bind port with one of enabled mechanism drivers
+4. nova-compute receives from Neutron informations about new port and prepare
+   to connect tap device (e.g. create bridge)
+5. neutron-server notify L2 agent and DHCP agent about new port
+6. nova-compute starts instances and pause it for a while
+7. Neutron L2 agent connects port to L2 network (vlan tagging, openflow rules, etc.) and notify neutron-server that port is ACTIVE
+8. neutron-server notify nova-api that port for instance is ready, nova-compute can then unpause instance
+]
+
+---
+
+
 # Questions?
 
 .presenters[
