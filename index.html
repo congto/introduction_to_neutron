@@ -57,7 +57,7 @@ class: center
 
 # Neutron main components:
 
-![architecture](images/components_architecture.png)
+![architecture](images/components_architecture_server.png)
 
 ---
 
@@ -119,7 +119,17 @@ class: center
 
 # Neutron agents
 
-## L2 agents
+## L2 agent
+
+![architecture](images/components_architecture_l2agent.png)
+
+---
+
+class: center
+
+# Neutron agents
+
+## L2 agent
 
 .left_side_list[
 * Runs on each compute and network node
@@ -136,6 +146,16 @@ class: center
 .left_side_list[
 * Provide L2 connectivity for Neutron ports (like instances)
 ]
+
+---
+
+class: center
+
+# Neutron agents
+
+## L3 agent
+
+![architecture](images/components_architecture_l3agent.png)
 
 ---
 
@@ -165,6 +185,16 @@ class: center
   * iptables (NAT),
   * network namespaces to provide isolated routers
 ]
+
+---
+
+class: center
+
+# Neutron agents
+
+## DHCP and Metadata agent
+
+![architecture](images/components_architecture_dhcp_metadata.png)
 
 ---
 
