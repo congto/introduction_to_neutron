@@ -1,8 +1,14 @@
 .left_side_list {
     text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-.left_side_list li{
+.left_side_list ul {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.left_side_list ul li{
     margin-top: 20px;
     margin-bottom: 20px;
 }

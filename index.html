@@ -69,26 +69,15 @@ class: center
 * Process REST API requests
 ]
 
----
-
-class: center
-
-# Neutron server functions
+--
 
 .left_side_list[
-* Process REST API requests
 * Access to database
 ]
 
----
-
-class: center
-
-# Neutron server functions
+--
 
 .left_side_list[
-* Process REST API requests
-* Access to database
 * Communicate with agents via RPC (rabbitmq)
 ]
 
@@ -102,26 +91,15 @@ class: center
 * Core plugin - for example ML2 with drivers for openvswitch, linuxbridge and/or SR-IOV
 ]
 
----
-
-class: center
-
-# Neutron server components
+--
 
 .left_side_list[
-* Core plugin - for example ML2 with drivers for openvswitch, linuxbridge and/or SR-IOV
 * Service plugins - like QoS, firewall or l3 router and many others
 ]
 
----
-
-class: center
-
-# Neutron server components
+--
 
 .left_side_list[
-* Core plugin - for example ML2 with drivers for openvswitch, linuxbridge and/or SR-IOV
-* Service plugins - like QoS, firewall or l3 router and many others
 * API extenstions - used to add custom REST API functions, list of enabled extenstions can be checked via API call:
 ]
 
@@ -147,30 +125,15 @@ class: center
 * Runs on each compute and network node
 ]
 
----
-
-class: center
-
-# Neutron agents
-
-## L2 agents
+--
 
 .left_side_list[
-* Runs on each compute and network node
 * Communicate only with Neutron server via RPC
 ]
 
----
-
-class: center
-
-# Neutron agents
-
-## L2 agents
+--
 
 .left_side_list[
-* Runs on each compute and network node
-* Communicate only with Neutron server via RPC
 * Provide L2 connectivity for Neutron ports (like instances)
 ]
 
@@ -186,34 +149,17 @@ class: center
 * Typically runs on network nodes
 ]
 
----
-
-class: center
-
-# Neutron agents
-
-## L3 agent
+--
 
 .left_side_list[
-* Typically runs on network nodes
 * Provide L3 services like:
   * routing between L2 networks
   * floating IPs
 ]
 
----
-
-class: center
-
-# Neutron agents
-
-## L3 agent
+--
 
 .left_side_list[
-* Typically runs on network nodes
-* Provide L3 services like:
-  * routing between L2 networks
-  * floating IPs
 * uses standard Linux tools:
   * standard Linux IP stack,
   * iptables (NAT),
@@ -232,47 +178,60 @@ class: center
 * Both agents typically runs on network nodes
 ]
 
----
-
-class: center
-
-# Neutron agents
-
-## DHCP and Metadata agent
+--
 
 .left_side_list[
-* Both agents typically runs on network nodes
 * DHCP agent provides dhcp service for instances
 ]
 
----
-
-class: center
-
-# Neutron agents
-
-## DHCP and Metadata agent
+--
 
 .left_side_list[
-* Both agents typically runs on network nodes
-* DHCP agent provides dhcp service for instances
 * Metadata agent can work together with DHCP or L3 agent
 ]
 
----
-
-class: center
-
-# Neutron agents
-
-## DHCP and Metadata agent
+--
 
 .left_side_list[
-* Both agents typically runs on network nodes
-* DHCP agent provides dhcp service for instances
-* Metadata agent can work together with DHCP or L3 agent
 * Metadata agent provides proxy between instances and nova-api metadata service
   and provides metadata service for instances on 169.254.169.254:80
+]
+
+---
+
+class: center
+
+# Basic concepts (?) in Neutron
+
+.left_side_list[
+* network - isolated L2 network segment, like VLAN in physical networking world
+  * tenant network - private network used in tenant, it can be done with vxlan or GRE tunneling
+  * provider network - mapped directly to physical network in datacenter; it can be VLAN or flat network
+  * external network - like provider network but also provide access to internet
+]
+
+--
+
+.left_side_list[
+* subnet - block of IPv4 or IPv6 addresses with configuration like dhcp server IP, gateway IP address, static routes
+]
+
+---
+
+class: center
+
+# Basic concepts (?) in Neutron
+
+.left_side_list[
+* port - connection point for attaching a single device, such as the NIC of a instance, to a virtual network
+]
+
+--
+
+.left_side_list[
+* static IP - IP address assigned to port and configured for example on instance
+* floating IP - public IP address, configured on router and routed to some static IP address;
+  it is not configured on instance directly and can be easily moved to another instance
 ]
 
 ---
@@ -290,6 +249,7 @@ class: center, workflow
 ---
 
 class: center, workflow
+count: false
 
 # Standard workflow between Nova and Neutron
 
@@ -304,6 +264,7 @@ class: center, workflow
 ---
 
 class: center, workflow
+count: false
 
 # Standard workflow between Nova and Neutron
 
@@ -322,6 +283,7 @@ class: center, workflow
 ---
 
 class: center, workflow
+count: false
 
 # Standard workflow between Nova and Neutron
 
