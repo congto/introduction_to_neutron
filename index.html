@@ -31,8 +31,10 @@ Sławek Kapłoński <br/> slawomir.kaplonski@ovh.net
   * L2 agents (openvswitch, linuxbridge, etc.),
   * L3 agent,
   * metadata, dhcp agents.
-4. Standard workflow between Nova and Neutron
-5. Network scenarios example(s)
+4. Basic concepts in Neutron
+5. Examples of usage Neutron CLI client
+6. Standard workflow between Nova and Neutron
+7. Network scenario example
 
 ---
 
@@ -231,7 +233,7 @@ class: center
 
 class: center
 
-# Basic concepts (?) in Neutron
+# Basic concepts in Neutron
 
 .left_side_list[
 * network - isolated L2 network segment, like VLAN in physical networking world
@@ -250,7 +252,7 @@ class: center
 
 class: center
 
-# Basic concepts (?) in Neutron
+# Basic concepts in Neutron
 
 .left_side_list[
 * port - connection point for attaching a single device, such as the NIC of a instance, to a virtual network
@@ -263,6 +265,105 @@ class: center
 * floating IP - public IP address, configured on router and routed to some static IP address;
   it is not configured on instance directly and can be easily moved to another instance
 ]
+
+---
+
+class: center
+
+# CLI client usage
+
+.left_side_list[
+* create network
+]
+
+```bash
+admin@devstack-1:~$ neutron net-create Local-Network
+Created a new network:
++---------------------------+--------------------------------------+
+| Field                     | Value                                |
++---------------------------+--------------------------------------+
+| admin_state_up            | True                                 |
+| availability_zone_hints   |                                      |
+| availability_zones        |                                      |
+| created_at                | 2016-08-01T12:38:36                  |
+| description               |                                      |
+| id                        | 74149489-5cd6-473e-aeb7-d003652c8048 |
+| ipv4_address_scope        |                                      |
+| ipv6_address_scope        |                                      |
+| mtu                       | 0                                    |
+| name                      | Local-Network                        |
+| port_security_enabled     | True                                 |
+| provider:network_type     | local                                |
+| provider:physical_network |                                      |
+| provider:segmentation_id  |                                      |
+```
+
+---
+
+class: center
+
+# CLI client usage
+
+.left_side_list[
+* create subnet
+]
+
+
+```bash
+admin@devstack-1:~$ neutron subnet-create Local-Network 10.0.0.0/24
+Created a new subnet:
++-------------------+--------------------------------------------+
+| Field             | Value                                      |
++-------------------+--------------------------------------------+
+| allocation_pools  | {"start": "10.0.0.2", "end": "10.0.0.254"} |
+| cidr              | 10.0.0.0/24                                |
+| created_at        | 2016-08-01T12:47:28                        |
+| description       |                                            |
+| dns_nameservers   |                                            |
+| enable_dhcp       | True                                       |
+| gateway_ip        | 10.0.0.1                                   |
+| host_routes       |                                            |
+| id                | 9f31692e-f2b8-4db0-9073-1c732373b9af       |
+| ip_version        | 4                                          |
+| ipv6_address_mode |                                            |
+| ipv6_ra_mode      |                                            |
+| name              |                                            |
+| network_id        | 74149489-5cd6-473e-aeb7-d003652c8048       |
+| subnetpool_id     |                                            |
+```
+
+---
+
+class: center
+
+# CLI client usage
+
+.left_side_list[
+* Spawn instance connected to network
+]
+
+```bash
+admin@devstack-1:~$ nova boot --image cirros-0.3.4-i386-disk \
+--nic net-id=74149489-5cd6-473e-aeb7-d003652c8048 --flavor m1.micro VM-1
++--------------------------------------+----------------------------------------+
+| Property                             | Value                                  |
++--------------------------------------+----------------------------------------+
+| OS-DCF:diskConfig                    | MANUAL                                 |
+| accessIPv4                           |                                        |
+| accessIPv6                           |                                        |
+| adminPass                            | U9h5cGcnZ2tm                           |
+| created                              | 2016-08-01T12:51:11Z                   |
+| flavor                               | m1.micro (84)                          |
+| id                                   | e4d99f99-f189-4b6a-b37d-ec1f0e106e7d   |
+| image                                | cirros-0.3.4-i386-disk                 |
+| key_name                             | -                                      |
+| locked                               | False                                  |
+| metadata                             | {}                                     |
+| name                                 | VM-1                                   |
+| os-extended-volumes:volumes_attached | []                                     |
+| security_groups                      | default                                |
+| status                               | BUILD                                  |
+```
 
 ---
 
