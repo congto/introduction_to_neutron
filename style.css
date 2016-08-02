@@ -42,3 +42,23 @@
     margin-top: 30px;
     margin-bottom: 10px;
 }
+
+div.scenario {
+    padding: 1em 2em;
+}
+
+.scenario p {
+    margin-top: 10px;
+}
+
+.left_image {
+    float: left;
+}
+
+.right_image {
+    float: right;
+}
+
+.image-w500 img {
+    width: 500px;
+}
