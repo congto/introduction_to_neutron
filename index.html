@@ -59,7 +59,7 @@ services (e.g., nova).
 
 class: center
 
-# Neutron main components:
+# Neutron main components
 
 ![architecture](images/components_architecture_server.png)
 
@@ -68,6 +68,12 @@ class: center
 class: center
 
 # Neutron server functions
+
+.left_side_list[
+* SDN controller
+]
+
+--
 
 .left_side_list[
 * Process REST API requests
@@ -83,6 +89,12 @@ class: center
 
 .left_side_list[
 * Communicate with agents via RPC (rabbitmq)
+]
+
+--
+
+.left_side_list[
+* Stateless
 ]
 
 ---
@@ -383,7 +395,6 @@ class: center, workflow
 ---
 
 class: center, workflow
-count: false
 
 # Standard workflow between Nova and Neutron
 
@@ -397,7 +408,6 @@ count: false
 ---
 
 class: center, workflow
-count: false
 
 # Standard workflow between Nova and Neutron
 
@@ -413,7 +423,6 @@ count: false
 ---
 
 class: center, workflow
-count: false
 
 # Standard workflow between Nova and Neutron
 
