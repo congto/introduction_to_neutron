@@ -15,7 +15,9 @@ class: center, middle
 # Introduction to Openstack Neutron
 
 .presenter[
-Sławek Kapłoński <br/> slawomir.kaplonski@ovh.net
+Sławek Kapłoński  
+slawomir.kaplonski@ovh.net  
+IRC: slaweq
 ]
 ---
 
@@ -74,7 +76,7 @@ class: center
 --
 
 .left_side_list[
-* Access to database
+* Access to database - it is the only component with access to database
 ]
 
 --
@@ -146,7 +148,7 @@ class: center
 --
 
 .left_side_list[
-* Provide L2 connectivity for Neutron ports (like instances)
+* Provide L2 connectivity for example for instances
 ]
 
 ---
@@ -219,14 +221,14 @@ class: center
 --
 
 .left_side_list[
-* Metadata agent can work together with DHCP or L3 agent
+* Metadata agent provides proxy between instances and nova-api metadata service
+  and provides metadata service for instances on 169.254.169.254:80
 ]
 
 --
 
 .left_side_list[
-* Metadata agent provides proxy between instances and nova-api metadata service
-  and provides metadata service for instances on 169.254.169.254:80
+* Metadata agent can work together with DHCP or L3 agent
 ]
 
 ---
