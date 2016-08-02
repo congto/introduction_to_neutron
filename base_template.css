@@ -18,6 +18,15 @@ a, a:visited {
     padding-top: 0em !important;
 }
 
+.remark-slide-number {
+    width: 97%;
+    text-align: right;
+    background-image: url('images/pl-NORMAL-white.svg');
+    background-size: 2.5em;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+}
+
 #slide-title {
     background: url('images/title_background.png');
 }
