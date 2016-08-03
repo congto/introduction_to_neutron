@@ -25,18 +25,6 @@
     margin-bottom: 10px;
 }
 
-.remark-code {
-    padding: 0.1em !important;
-}
-
-.remark-code-line {
-    text-align: left;
-    background-color: #000;
-    border: 1px solid #000;
-    color: #fff;
-    padding: 0 1em;
-}
-
 .last h2 {
     color: #00cc99;
     margin-top: 30px;
@@ -61,4 +49,9 @@ div.scenario {
 
 .image-w500 img {
     width: 500px;
+}
+
+/* To place code littlebit closer to description: */
+.remark-code {
+    margin-top: -15px;
 }
