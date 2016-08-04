@@ -47,9 +47,18 @@ div.scenario {
     float: right;
 }
 
-.image-w500 img {
-    width: 500px;
+div.image-fullwidth {
+    margin-top: 1em;
 }
+
+div.image-fullwidth img {
+    width: 100%;
+}
+
+div.image-w80pr img {
+    width: 80%;
+}
+
 
 /* To place code littlebit closer to description: */
 .remark-code {

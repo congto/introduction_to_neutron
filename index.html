@@ -251,7 +251,7 @@ class: center
 
 .left_side_list[
 * network - isolated L2 network segment, like VLAN in physical networking world
-  * tenant network - private network used in tenant, it can be done with vxlan or GRE tunneling
+  * tenant network - private network used in tenant, it can be done with VXLAN or GRE tunneling
   * provider network - mapped directly to physical network in datacenter; it can be VLAN or flat network
   * external network - like provider network but also provide access to internet
 ]
@@ -473,8 +473,18 @@ class: center, scenario
 
 #Network scenario example
 
-.image-w500[
-![scenario flows](images/scenario-legacy-ovs-flowns1.png)
+.image-fullwidth[
+![scenario flows](images/scenario-legacy-ovs-flowns1-compute.png)
+]
+
+---
+
+class: center, scenario
+
+#Network scenario example
+
+.image-w80pr[
+![scenario flows](images/scenario-legacy-ovs-flowns1-network.png)
 ]
 
 ---
